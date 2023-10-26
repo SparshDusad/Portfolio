@@ -1,48 +1,53 @@
 import React from 'react';
-import {FaGithub} from "react-icons/fa";
-import {CgFileDocument} from "react-icons/cg";
+import { FaGithub } from 'react-icons/fa';
+import { CgFileDocument } from 'react-icons/cg';
 
-
-const  ProjectBox = ({projectPhoto, projectName}) => {
+const ProjectBox = ({ projectPhoto, projectName }) => {
   const desc = {
-    TindogDesc : "This website is a landing page of Tinder but for dogs. It is a responsive website which was made to understand Bootstrap. I also learned how to host my project on Github and then how to deploy that project using Github pages.",
-    TindogGithub : "https://github.com/DevanshSahni/tindog",
-    TindogWebsite : "https://devanshsahni.github.io/tindog/",
+    TodoDesc: 'A React To-do App',
+    TodoGithub: 'https://github.com/SparshDusad/React-To-Do', // Updated GitHub URL
 
-    RogFreeDesc : "A website that shows you over seven specialized yoga postures for specific diseases or health problems. This was a group project made in a team of two for a 36-hour-long online hackathon named Hackodisha 2.0.",
-    RogFreeGithub : "https://github.com/DevanshSahni/Rog-Free",
-    RogFreeWebsite : "https://devanshsahni.github.io/Rog-Free/",
-
-    NewsletterDesc:"A newsletter signup site made using Mailchimp API where the signups can be monitored from the MailChimp account. This project was made to understand API integration, environment variables and vercel deployment.",
-    NewsletterGithub:"",
-    NewsletterWebsite:"https://newsletter-signup-teal.vercel.app/"
-  }
-
-  let show ='';
-  if(desc[projectName + 'Github']===""){
-    show="none";
-  }
+    NewsletterDesc: 'A Real-time Crypto Price Tracker',
+    NewsletterGithub: 'https://github.com/SparshDusad/Cryptocurrency-Price-Tracker',
     
+    RealEstateDesc: 'A Modern Real Estate Marketplace',
+    RealEstateGithub: 'https://github.com/SparshDusad/Real-Estate',
+    RealEstateWebsite: 'https://mern-estate-32g0.onrender.com/',
+  };
+
+  const githubLink = desc[projectName + 'Github'];
+  const websiteLink = desc[projectName + 'Website'];
+  const showGithubButton = githubLink !== '';
+  const showWebsiteButton = websiteLink !== '';
+
   return (
-    <div className='projectBox'> 
-        <img className='projectPhoto' src={projectPhoto} alt="Project display" /> 
-        <div>
-            <br />
-            <h3>{projectName}</h3>
-            <br />
-            {desc[projectName + 'Desc']}
-            <br />
+    <div className='projectBox'>
+      <img className='projectPhoto' src={projectPhoto} alt='Project display' />
+      <div>
+        <br />
+        <h3>{projectName}</h3>
+        <br />
+        {desc[projectName + 'Desc']}
+        <br />
 
-            <a style={{display:show}} href={desc[projectName + 'Github']} target='_blank'>
-              <button className='projectbtn'><FaGithub/> Github</button>
-            </a>
+        {showGithubButton && (
+          <a href={githubLink} target='_blank' rel='noopener noreferrer'>
+            <button className='projectbtn'>
+              <FaGithub /> Github
+            </button>
+          </a>
+        )}
 
-            <a href={desc[projectName + 'Website']} target='_blank'>
-              <button className='projectbtn'><CgFileDocument/> Demo</button>
-            </a>
-        </div>
+        {showWebsiteButton && (
+          <a href={websiteLink} target='_blank' rel='noopener noreferrer'>
+            <button className='projectbtn'>
+              <CgFileDocument /> Demo
+            </button>
+          </a>
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default  ProjectBox
+export default ProjectBox;
