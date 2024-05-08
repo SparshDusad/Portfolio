@@ -35,7 +35,7 @@ const Home = () => {
             be proud of.<br /><br />
             I am fluent in <b>C++</b> and know a bit of <b>Python</b> and am working on a few 
             projects in the <b>MERN</b> stack and <b>ML.</b><br />
-            I plan to learn  <b>Solidity</b>,<b>Three.js</b> in the near future. <br /><br />
+           <br /><br />
             Also, I love <b>coffee</b> <CiCoffeeCup style={{scale:"1.5", rotate:"15deg"}}/>   
           </p>
         </div>
